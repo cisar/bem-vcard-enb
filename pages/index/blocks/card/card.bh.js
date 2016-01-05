@@ -1,6 +1,14 @@
 module.exports = function(bh) {
 
     var i18n = {
+        uk: {
+            tel: 'тел.: ',
+            telExt: ', дод. ',
+            fax: 'факс: ',
+            cell: 'моб.: ',
+            site: '',
+            skype: 'skype: '
+        },
         ru: {
             tel: 'тел.: ',
             telExt: ', доб. ',
@@ -154,9 +162,9 @@ module.exports = function(bh) {
 
     bh.match('card__address', function(ctx, json) {
 
-        var order = json.lang === 'ru'
-            ? ['country', 'city', 'zip']
-            : ['city', 'zip', 'country'];
+        var order = json.lang === 'en'
+            ? ['city', 'zip', 'country']
+            : ['country', 'city', 'zip'];
 
         ctx.attrs({
             itemprop: 'address',
@@ -255,9 +263,9 @@ module.exports = function(bh) {
             }
         });
 
-        content.push({
-            elem: 'gap'
-        });
+        //content.push({
+        //    elem: 'gap'
+        //});
 
         ['skype','github', 'twitter'].forEach(function(prop) {
             if (data[prop]) {

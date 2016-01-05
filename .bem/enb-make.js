@@ -69,7 +69,7 @@ module.exports = function (config) {
             var ret = [];
 
             ret.push(config.resolvePath({
-                "path": "blocks",
+                "path": "pages/index/blocks",
                 "check": true
             }));
 

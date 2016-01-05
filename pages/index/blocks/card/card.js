@@ -87,10 +87,12 @@ var Card = (function() {
         _switchSide: function(lang) {
 
             var to,
-                from,
-                cb
+                from, from0,
+                cb;
 
             cb = function() {
+                removeClass(from0, modSideOpened);
+                addClass(from0, modSideClosed);
                 removeClass(from, modSideOpened);
                 addClass(from, modSideClosed);
                 removeClass(to, modSideClosed);
@@ -101,7 +103,8 @@ var Card = (function() {
                 if (side.lang === lang) {
                     to = side.elem;
                 } else {
-                    from = side.elem;
+                    (from) ? from0 = side.elem : from = side.elem;
+                    //from = side.elem;
                 }
             });
 
@@ -123,7 +126,7 @@ var Card = (function() {
             var lang = location.hash.match(/(\w{2})/);
             return lang ? lang[1] : '';
         }
-    }
+    };
 
     function addClass(elem, className) {
         if (!hasClass(elem, className)) {
@@ -171,6 +174,6 @@ function stringifyCSS(cssObject) {
     return result;
 }
 
-if (typeof console !== 'undefined') {
-    console.log('%c https://github.com/sbmaxx/bem-vcard-enb', stringifyCSS(consoleCSS));
-}
+//if (typeof console !== 'undefined') {
+//    console.log('%c https://github.com/sbmaxx/bem-vcard-enb', stringifyCSS(consoleCSS));
+//}

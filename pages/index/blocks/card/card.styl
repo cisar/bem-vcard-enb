@@ -67,7 +67,8 @@ height = 300px
     }
 
     &__gap {
-        height: 10px;
+        //height: 10px;
+        height: 4em;
     }
 
     &__name {
@@ -128,8 +129,12 @@ height = 300px
     &__link_disabled {
         color: #000;
         text-decoration: none;
+        cursor: default;
         &:visited {
             color: #000
+        }
+        &:hover {
+            text-decoration: none;
         }
     }
 
